@@ -1197,6 +1197,9 @@ body {
 .work__picture:hover img, .work__picture:focus img {
   transform: rotateY(0deg);
 }
+.work__picture picture {
+  perspective: 500px;
+}
 .work_reverse {
   flex-direction: row-reverse;
 }
