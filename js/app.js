@@ -264,7 +264,7 @@
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 8
+                        spaceBetween: 16
                     },
                     768: {
                         slidesPerView: 2,
@@ -465,6 +465,7 @@
                     const childX = element.getBoundingClientRect().left + element.getBoundingClientRect().width / 2;
                     const childY = element.getBoundingClientRect().top + element.getBoundingClientRect().height / 2;
                     angles[index] = Math.atan2(manY - childY, manX - childX);
+                    console.log([ index ] + "ang= " + angles[index]);
                 }));
             }
             function resetTransform() {
