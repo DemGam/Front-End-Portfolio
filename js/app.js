@@ -432,10 +432,6 @@
                 }
             }), 0);
             formValidate.formClean(form);
-            formLogging(`Форма отправлена!`);
-        }
-        function formLogging(message) {
-            FLS(`[Формы]: ${message}`);
         }
     }
     window.addEventListener("load", (function(e) {
@@ -571,15 +567,15 @@
         const mediaHero = document.querySelector(".media-hero");
         if (mediaHero) {
             const man = mediaHero.querySelector(".media-hero__man");
-            const cube = mediaHero.querySelector(".media-hero__cube");
-            const smile = mediaHero.querySelector(".media-hero__smile");
-            const toroidYellow = mediaHero.querySelector(".media-hero__toroid-y");
-            const toroidPink = mediaHero.querySelector(".media-hero__toroid-p");
-            const sphere = mediaHero.querySelector(".media-hero__sphere");
+            const mouse = mediaHero.querySelector(".media-hero__mouse");
+            const like = mediaHero.querySelector(".media-hero__like");
+            const webcam = mediaHero.querySelector(".media-hero__webcam");
+            const keyboard = mediaHero.querySelector(".media-hero__keyboard");
+            const joistick = mediaHero.querySelector(".media-hero__joistick");
             let isMauseWathing = false;
             let heroIsIntersecting = false;
             let manX = 0, manY = 0;
-            const childElements = [ cube, smile, toroidYellow, toroidPink, sphere ];
+            const childElements = [ mouse, like, webcam, keyboard, joistick ];
             const distances = Array(childElements.length).fill(0);
             const angles = Array(childElements.length).fill(0);
             const movementKoef = .1;
