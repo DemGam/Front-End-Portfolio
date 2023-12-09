@@ -1,6 +1,9 @@
 ## My Front-End Portfolio🐱‍💻
 
-Due to the GitHub limitation, PHPMailer files are not working, so you can try a 👉 [fully functional project here](https://alex-demyan-portfolio.000webhostapp.com/index.html) 👈.
+Due to the GitHub limitation, PHPMailer files are not working, so you can try a 👉
+<a href="https://alex-demyan-portfolio.000webhostapp.com/index.html" target="_blank">
+  fully functional project here
+</a> 👈.
 
 Fully responsive and adaptive design, using clean and clear code, semantics and BEM principles.🚀
 It was made using AI neural networks 🤖 to enhance texts and generate some images.
