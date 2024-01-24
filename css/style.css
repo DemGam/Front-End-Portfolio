@@ -258,6 +258,10 @@ body::after {
 		);
   }
 }
+.popup__mail {
+  color: hsl(266, 96%, 65%);
+}
+
 .popup_show {
   z-index: 150;
   visibility: visible;
