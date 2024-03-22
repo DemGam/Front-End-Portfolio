@@ -191,7 +191,7 @@ body::after {
   transform: scale(0);
   transition: transform 0.3s ease 0s;
   background-color: #242236;
-  width: 50%;
+  width: 70%;
   max-width: 40rem;
   text-align: center;
   border: solid 0.1875rem hsl(266, 96%, 65%);
@@ -744,6 +744,57 @@ body::after {
   text-indent: -6.25rem;
 }
 
+._anim__appear {
+  opacity: 0;
+}
+
+._anim__l-to-r {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+._anim__r-to-l {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+._anim__b-to-t {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+._animated._anim__appear {
+  animation: appear 0.7s ease forwards;
+}
+._animated._anim__l-to-r {
+  animation: l-to-r 1.2s ease forwards;
+}
+._animated._anim__r-to-l {
+  animation: r-to-l 1.2s ease forwards;
+}
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes l-to-r {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes r-to-l {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes b-to-t {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .social-icon {
   transform: translateY(100%);
   opacity: 0;
@@ -753,7 +804,20 @@ body::after {
   animation: b-to-t 0.5s cubic-bezier(0.5, 1.5, 0.7, 1) forwards;
 }
 
+.perk-card {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+._animated .perk-card {
+  animation: b-to-t 1.2s cubic-bezier(0.5, 1.5, 0.7, 1) forwards;
+}
+
 ._anim__parent > *:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+._anim-social > *:nth-child(1) {
   animation-delay: 0.15s;
 }
 
@@ -761,7 +825,15 @@ body::after {
   animation-delay: 0.3s;
 }
 
+._anim-social > *:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
 ._anim__parent > *:nth-child(3) {
+  animation-delay: 0.45s;
+}
+
+._anim-social > *:nth-child(3) {
   animation-delay: 0.45s;
 }
 
@@ -769,16 +841,18 @@ body::after {
   animation-delay: 0.6s;
 }
 
+._anim-social > *:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
 ._anim__parent > *:nth-child(5) {
   animation-delay: 0.75s;
 }
 
-@keyframes b-to-t {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+._anim-social > *:nth-child(5) {
+  animation-delay: 0.75s;
 }
+
 ._shader {
   background-color: hsl(245, 75%, 5%);
   position: absolute;
@@ -857,7 +931,7 @@ body::after {
   }
 }
 .hero__descr {
-  line-height: 1.35;
+  line-height: 1.5;
   font-family: "Poppins", sans-serif;
   color: #d2d2d2;
 }
@@ -1046,42 +1120,42 @@ body::after {
   flex-wrap: wrap;
   justify-content: center;
 }
-@supports (row-gap: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem )) {
+@supports (row-gap: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem )) {
   .benefits__cards {
-    row-gap: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem );
+    row-gap: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem );
   }
 }
-@supports not (row-gap: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem )) {
+@supports not (row-gap: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem )) {
   .benefits__cards {
     row-gap: calc(
-			1rem + 0.5 * (100vw - 33.75rem) / 28.25
+			1.5rem + 0.5 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
-@supports (margin-inline: clamp( -0.75rem , -0.2013274336rem  +  -0.8849557522vw , -0.5rem )) {
+@supports (margin-inline: clamp( -1.25rem , -0.7013274336rem  +  -0.8849557522vw , -1rem )) {
   .benefits__cards {
-    margin-inline: clamp( -0.75rem , -0.2013274336rem  +  -0.8849557522vw , -0.5rem );
+    margin-inline: clamp( -1.25rem , -0.7013274336rem  +  -0.8849557522vw , -1rem );
   }
 }
-@supports not (margin-inline: clamp( -0.75rem , -0.2013274336rem  +  -0.8849557522vw , -0.5rem )) {
+@supports not (margin-inline: clamp( -1.25rem , -0.7013274336rem  +  -0.8849557522vw , -1rem )) {
   .benefits__cards {
     margin-inline: calc(
-			-0.5rem + -0.25 * (100vw - 33.75rem) / 28.25
+			-1rem + -0.25 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
 .perk-card {
   flex: 0 1 33.333%;
 }
-@supports (padding-inline: clamp( 0.5rem , 0.2013274336rem  +  0.8849557522vw , 0.75rem )) {
+@supports (padding-inline: clamp( 1rem , 0.7013274336rem  +  0.8849557522vw , 1.25rem )) {
   .perk-card {
-    padding-inline: clamp( 0.5rem , 0.2013274336rem  +  0.8849557522vw , 0.75rem );
+    padding-inline: clamp( 1rem , 0.7013274336rem  +  0.8849557522vw , 1.25rem );
   }
 }
-@supports not (padding-inline: clamp( 0.5rem , 0.2013274336rem  +  0.8849557522vw , 0.75rem )) {
+@supports not (padding-inline: clamp( 1rem , 0.7013274336rem  +  0.8849557522vw , 1.25rem )) {
   .perk-card {
     padding-inline: calc(
-			0.5rem + 0.25 * (100vw - 33.75rem) / 28.25
+			1rem + 0.25 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
@@ -1104,27 +1178,27 @@ body::after {
   background-color: #242236;
   height: 100%;
 }
-@supports (padding-block: clamp( 0.75rem , 0.4513274336rem  +  0.8849557522vw , 1rem )) {
+@supports (padding-block: clamp( 1.25rem , 0.6526548673rem  +  1.7699115044vw , 1.75rem )) {
   .perk-card__wrapper {
-    padding-block: clamp( 0.75rem , 0.4513274336rem  +  0.8849557522vw , 1rem );
+    padding-block: clamp( 1.25rem , 0.6526548673rem  +  1.7699115044vw , 1.75rem );
   }
 }
-@supports not (padding-block: clamp( 0.75rem , 0.4513274336rem  +  0.8849557522vw , 1rem )) {
+@supports not (padding-block: clamp( 1.25rem , 0.6526548673rem  +  1.7699115044vw , 1.75rem )) {
   .perk-card__wrapper {
     padding-block: calc(
-			0.75rem + 0.25 * (100vw - 33.75rem) / 28.25
+			1.25rem + 0.5 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
-@supports (padding-inline: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem )) {
+@supports (padding-inline: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem )) {
   .perk-card__wrapper {
-    padding-inline: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem );
+    padding-inline: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem );
   }
 }
-@supports not (padding-inline: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem )) {
+@supports not (padding-inline: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem )) {
   .perk-card__wrapper {
     padding-inline: calc(
-			1rem + 0.5 * (100vw - 33.75rem) / 28.25
+			1.5rem + 0.5 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
@@ -1266,7 +1340,7 @@ body::after {
   width: 100%;
 }
 .perk-card__text {
-  line-height: 1.35;
+  line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   color: #d2d2d2;
@@ -1313,29 +1387,38 @@ body::after {
 }
 .work {
   display: flex;
-  align-items: center;
 }
-@supports (gap: clamp( 1rem , -0.7142857143rem  +  3.5714285714vw , 1.5rem )) {
+@supports (gap: clamp( 2.5rem , 2.0588235294rem  +  1.9607843137vw , 3rem )) {
   .work {
-    gap: clamp( 1rem , -0.7142857143rem  +  3.5714285714vw , 1.5rem );
+    gap: clamp( 2.5rem , 2.0588235294rem  +  1.9607843137vw , 3rem );
   }
 }
-@supports not (gap: clamp( 1rem , -0.7142857143rem  +  3.5714285714vw , 1.5rem )) {
+@supports not (gap: clamp( 2.5rem , 2.0588235294rem  +  1.9607843137vw , 3rem )) {
   .work {
     gap: calc(
-			1rem + 0.5 * (100vw - 48rem) / 14
+			2.5rem + 0.5 * (100vw - 22.5rem) / 25.5
+		);
+  }
+}
+@supports (padding-bottom: clamp( 3rem , 2.6428571429rem  +  1.7857142857vw , 3.75rem )) {
+  .work {
+    padding-bottom: clamp( 3rem , 2.6428571429rem  +  1.7857142857vw , 3.75rem );
+  }
+}
+@supports not (padding-bottom: clamp( 3rem , 2.6428571429rem  +  1.7857142857vw , 3.75rem )) {
+  .work {
+    padding-bottom: calc(
+			3rem + 0.75 * (100vw - 20rem) / 42
 		);
   }
 }
 @media (max-width: 768px) {
   .work {
     flex-direction: column-reverse;
-    gap: 0;
   }
 }
 .work__text {
   flex: 1 1 50%;
-  margin-bottom: 2.25rem;
 }
 .work__title {
   color: hsl(266, 96%, 65%);
@@ -1383,8 +1466,8 @@ body::after {
   line-height: 1.5;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  text-align: left;
   color: #d2d2d2;
-  margin-bottom: 1.125rem;
 }
 @supports (font-size: clamp( 1rem , 0.880952381rem  +  0.5952380952vw , 1.25rem )) {
   .work__descr {
@@ -1398,13 +1481,29 @@ body::after {
 		);
   }
 }
+@supports (margin-bottom: clamp( 1rem , 0.7619047619rem  +  1.1904761905vw , 1.5rem )) {
+  .work__descr {
+    margin-bottom: clamp( 1rem , 0.7619047619rem  +  1.1904761905vw , 1.5rem );
+  }
+}
+@supports not (margin-bottom: clamp( 1rem , 0.7619047619rem  +  1.1904761905vw , 1.5rem )) {
+  .work__descr {
+    margin-bottom: calc(
+			1rem + 0.5 * (100vw - 20rem) / 42
+		);
+  }
+}
+@media (max-width: 768px) {
+  .work__descr {
+    text-align: center;
+  }
+}
 .work__picture {
   flex: 1 1 50%;
   display: flex;
   max-height: 22.5rem;
   cursor: pointer;
   perspective: 500px;
-  margin-bottom: 2.25rem;
 }
 .work__picture img {
   width: 100%;
@@ -1440,13 +1539,31 @@ body::after {
 .work:not(:first-child),
 ._hidden-works .work {
   border-top: 2px solid hsl(266, 96%, 55%);
-  padding-top: 2.25rem;
+}
+@supports (padding-top: clamp( 3rem , 2.6428571429rem  +  1.7857142857vw , 3.75rem )) {
+  .work:not(:first-child),
+  ._hidden-works .work {
+    padding-top: clamp( 3rem , 2.6428571429rem  +  1.7857142857vw , 3.75rem );
+  }
+}
+@supports not (padding-top: clamp( 3rem , 2.6428571429rem  +  1.7857142857vw , 3.75rem )) {
+  .work:not(:first-child),
+  ._hidden-works .work {
+    padding-top: calc(
+			3rem + 0.75 * (100vw - 20rem) / 42
+		);
+  }
 }
 
 ._hidden-works {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.4s ease;
+}
+
+#more-works {
+  display: block;
+  margin: -24px auto 0;
 }
 
 @supports (margin-bottom: clamp( 3.75rem , 1.9642857143rem  +  8.9285714286vw , 7.5rem )) {
@@ -1567,27 +1684,27 @@ body::after {
   backdrop-filter: blur(8px);
   background-color: #242236;
 }
-@supports (padding-block: clamp( 0.75rem , 0.4513274336rem  +  0.8849557522vw , 1rem )) {
+@supports (padding-block: clamp( 1.25rem , 0.6526548673rem  +  1.7699115044vw , 1.75rem )) {
   .client__feedback {
-    padding-block: clamp( 0.75rem , 0.4513274336rem  +  0.8849557522vw , 1rem );
+    padding-block: clamp( 1.25rem , 0.6526548673rem  +  1.7699115044vw , 1.75rem );
   }
 }
-@supports not (padding-block: clamp( 0.75rem , 0.4513274336rem  +  0.8849557522vw , 1rem )) {
+@supports not (padding-block: clamp( 1.25rem , 0.6526548673rem  +  1.7699115044vw , 1.75rem )) {
   .client__feedback {
     padding-block: calc(
-			0.75rem + 0.25 * (100vw - 33.75rem) / 28.25
+			1.25rem + 0.5 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
-@supports (padding-inline: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem )) {
+@supports (padding-inline: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem )) {
   .client__feedback {
-    padding-inline: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem );
+    padding-inline: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem );
   }
 }
-@supports not (padding-inline: clamp( 1rem , 0.4026548673rem  +  1.7699115044vw , 1.5rem )) {
+@supports not (padding-inline: clamp( 1.5rem , 0.9026548673rem  +  1.7699115044vw , 2rem )) {
   .client__feedback {
     padding-inline: calc(
-			1rem + 0.5 * (100vw - 33.75rem) / 28.25
+			1.5rem + 0.5 * (100vw - 33.75rem) / 28.25
 		);
   }
 }
@@ -1700,7 +1817,7 @@ body::after {
   height: auto;
 }
 .client__text {
-  line-height: 1.35;
+  line-height: 1.5;
   font-family: "Poppins", sans-serif;
   color: #d2d2d2;
   font-weight: 300;
@@ -1838,7 +1955,7 @@ body::after {
 .swiper-button-prev:after {
   content: "";
   display: block;
-  background: url("../img/icons/pagArrow.svg") center/100% auto no-repeat;
+  background: url("../img/icons/pagArrow.svg") center 55%/100% auto no-repeat;
   width: 100%;
   height: 100%;
   transform: rotate(180deg);
@@ -1847,7 +1964,7 @@ body::after {
 .swiper-button-next:after {
   content: "";
   display: block;
-  background: url("../img/icons/pagArrow.svg") center/100% auto no-repeat;
+  background: url("../img/icons/pagArrow.svg") center 55%/100% auto no-repeat;
   width: 100%;
   height: 100%;
 }

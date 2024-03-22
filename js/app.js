@@ -402,7 +402,6 @@
                         body: formData
                     });
                     if (response.ok) {
-                        await response.json();
                         form.classList.remove("_sending");
                         popupElement.classList.remove("_sending");
                         popupElement.classList.add("_success");
@@ -458,15 +457,15 @@
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 16
+                        spaceBetween: 24
                     },
                     768: {
                         slidesPerView: 2,
-                        spaceBetween: 16
+                        spaceBetween: 32
                     },
                     992: {
                         slidesPerView: 2,
-                        spaceBetween: 24
+                        spaceBetween: 40
                     }
                 }
             });
@@ -542,6 +541,7 @@
             const moreWorksBtnHtml = '<button type="button" id="more-works" class="portfolio__more-btn btn btn_main">Show More</button>';
             hiddenWorks.insertAdjacentHTML("afterend", moreWorksBtnHtml);
             const moreWorksBtn = document.getElementById("more-works");
+            console.log("button added");
             let originalHeight;
             originalHeightHiddenWorks();
             moreWorksBtn.onclick = function() {
@@ -691,7 +691,26 @@
     if (document.querySelector(".typing-text__text")) {
         new Typed(".typing-text__text", options);
     }
-    const footerIcons = document.querySelector("._anim__parent");
+    const animElements = document.querySelectorAll('[class*="_anim__"]');
+    console.log("anim");
+    if (animElements.length > 0) {
+        const animOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px -30% 0px"
+        };
+        const animOnScroll = new IntersectionObserver((function(entries, animOnScroll) {
+            entries.forEach((entry => {
+                if (!entry.isIntersecting) return; else {
+                    entry.target.classList.add("_animated");
+                    animOnScroll.unobserve(entry.target);
+                }
+            }));
+        }), animOptions);
+        animElements.forEach((animElement => {
+            animOnScroll.observe(animElement);
+        }));
+    }
+    const footerIcons = document.querySelector("._anim-social");
     if (footerIcons) {
         const animFooterIcons = new IntersectionObserver((entries => {
             if (!entries[0].isIntersecting) return;
